@@ -1,5 +1,4 @@
 import time
-
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from proiect_unittest.home_page_medtinker import HomeMedtinkerChrome
@@ -22,7 +21,6 @@ class CeMeritaPage(HomeMedtinkerChrome):
                          text, 'Gata! Primul e-mail e deja pe drum.')
         time.sleep(3)
         WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(LocatorsCeMerita.MESAJ_DE_SUCCESS))
-
 
     def test_2_abonare_la_ce_merita_cu_valid_email(self):
         self.driver.find_element(*LocatorsCeMerita.CE_MERITA_PAGE).click()

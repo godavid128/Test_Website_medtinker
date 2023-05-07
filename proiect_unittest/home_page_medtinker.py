@@ -1,11 +1,11 @@
 '''
-Aici avem novoie sa importam libraria unittest
+Aici avem novoie sa importam libraria unittest, care ne va ajuta sa rulam testele noastre.
+In aceasta pagina definim 'setUp-ul' si 'tearDown' care sunt mostenite de toate testele scrise in unittest.
 '''
 import unittest
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
 from proiect_unittest.locators_medtinker import LocatorsHomeMedTinker
 
 

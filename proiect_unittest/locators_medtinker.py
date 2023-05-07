@@ -1,5 +1,4 @@
 '''
-
 Pentru inceput vom instala libraria selenium. In Terminal scriem: pip install webdriver-manager si pip install selenium
 Daca nu reusim sa instalam, intram la Python Packages si scriem in bara de cautare: webdriver-menager si selenium.
 '''
@@ -47,6 +46,7 @@ class LocatorsCeMerita:
     MESAJ_DE_SUCCESS = (By.XPATH, '//span[normalize-space()="Gata! Primul e-mail e deja pe drum."]')
     # MESAJ_DE_SUCCESS = (By.XPATH, '//*[@id="ce-merita"]/div/form/div[2]')
     # CLICK_PE_PAGINA = (By.XPATH, '//*[@id="post-2053"]/div/div/section[2]')
+
 
 class LocatorsContact:
     CONTACT_PAGE = (By.XPATH, '//*[@id="menu-item-738"]/a')

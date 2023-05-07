@@ -1,7 +1,4 @@
 import time
-
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from proiect_unittest.home_page_medtinker import HomeMedtinkerChrome
 from proiect_unittest.locators_medtinker import LocatorsContact
 
@@ -16,9 +13,6 @@ class ContactPage(HomeMedtinkerChrome):
         self.driver.find_element(*LocatorsContact.CONTACT_BIFARE_TERM_COND).click()
         time.sleep(3)
         self.driver.find_element(*LocatorsContact.CONTACT_BIFARE_ACORD_PRIMIRE_EMAIL).click()
-        # WebDriverWait(self.driver, 10).until(
-        #     EC.presence_of_element_located(LocatorsContact.CONTACT_BIFARE_ACORD_PRIMIRE_EMAIL))
-        # self.driver.implicitly_wait(10)
         self.driver.find_element(*LocatorsContact.TRIMITE_MESAJ).click()
         time.sleep(3)
         self.assertEqual(self.driver.find_element(*LocatorsContact.MESAJ_TRIMIS_CU_SUCCCES).

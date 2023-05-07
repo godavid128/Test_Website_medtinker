@@ -1,5 +1,4 @@
 import time
-
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from proiect_unittest.home_page_medtinker import HomeMedtinkerChrome
@@ -8,7 +7,7 @@ from proiect_unittest.locators_medtinker import LocatorsInregistrare
 
 class InregistrarePage(HomeMedtinkerChrome):
     # test1 - intram pe site, facem click pe inregistrare, si indetificam elementele de tip prenume, nume, username,
-    # email, parola, casuta termeni si conditii; si inseram valori corecte, exceptie la email introducem email fara aron.
+    # email, parola, casuta termeni si conditi; si inseram valori corecte, exceptie la email introducem email fara aron.
     # Apoi dam click pe butonul 'inregistrare' si verificam ca: se returneaza eroarea corecta
     def test_4_creare_cont_cu_email_fara_aron(self):
         self.driver.find_element(*LocatorsInregistrare.INREGISTRARE_PAGINA).click()
@@ -25,7 +24,6 @@ class InregistrarePage(HomeMedtinkerChrome):
         self.assertEqual(self.driver.find_element(*LocatorsInregistrare.MESAJ_ERROR_INREGISTRARE_1).
                          text, 'Enter valid Email!')
 
-    # Test creare cont fara parola
     def test_5_creare_cont_fara_parola(self):
         self.driver.find_element(*LocatorsInregistrare.INREGISTRARE_PAGINA).click()
         self.driver.find_element(*LocatorsInregistrare.PRENUME).send_keys('ion')
@@ -41,7 +39,6 @@ class InregistrarePage(HomeMedtinkerChrome):
                          text, 'This Field is required!')
         time.sleep(3)
 
-    # Test creare cont fara a accepta conditiile
     def test_6_creare_cont_fara_acceptare_conditii(self):
         self.driver.find_element(*LocatorsInregistrare.INREGISTRARE_PAGINA).click()
         self.driver.find_element(*LocatorsInregistrare.PRENUME).send_keys('david')
@@ -56,7 +53,6 @@ class InregistrarePage(HomeMedtinkerChrome):
                          text, 'Please accept the Terms and Conditions to proceed.')
         time.sleep(3)
 
-    # Test creare cont valid
     def test_7_creare_cont_valid_deja_existent(self):
         self.driver.find_element(*LocatorsInregistrare.INREGISTRARE_PAGINA).click()
         self.driver.find_element(*LocatorsInregistrare.PRENUME).send_keys('david')
