@@ -2,6 +2,16 @@
 ```
 Test website 'https://medtinker.ro/' with unittest
 ```
+```commandline
+In acest proiect a fost testat o parte din website-ul ‘https://medtinker.ro/’. 
+S-a testat urmatoarele domenii: 
+1. Abonare la newsletter; 2. Pagina contact; 3. Crearea contului; 4. Pagina de logare; 5. Pagina de cautare.
+Scopul acestor teste este sa vedem daca functionalitatile site-ului sunt la nivelul 
+asteptarii utilizatorului. Avem 11 teste reusite cu Pass. La testul 1 observam o eroare
+si anume ca, se poate face abonare la newsletter cu email invalid. 
+Ceea ce face ca utilizatorul sa astepte in zadar raspunsul.
+
+```
 Cum putem rula proiectul in calculator?
 ```commandline
 Pentru a accesa proiectul 'Test Website medtinker' este nevoie sa copiem repositorul pe localul nostru.

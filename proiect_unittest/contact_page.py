@@ -17,3 +17,4 @@ class ContactPage(HomeMedtinkerChrome):
         time.sleep(3)
         self.assertEqual(self.driver.find_element(*LocatorsContact.MESAJ_TRIMIS_CU_SUCCCES).
                          text, 'Gata treaba! Totul pare în regulă.')
+        self.driver.implicitly_wait(5)

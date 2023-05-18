@@ -10,7 +10,7 @@ import HtmlTestRunner
 
 from proiect_unittest.ce_merita_page import CeMeritaPage
 from proiect_unittest.contact_page import ContactPage
-from proiect_unittest.inregistrare_page import InregistrarePage
+from proiect_unittest.creare_cont_page import CreareContPage
 from proiect_unittest.login_page import LoginPage
 from proiect_unittest.search_page import SearchPage
 
@@ -21,7 +21,7 @@ class MedtinkerTestSuite(unittest.TestCase):
         smoke_test_med.addTests([
             unittest.defaultTestLoader.loadTestsFromTestCase(CeMeritaPage),
             unittest.defaultTestLoader.loadTestsFromTestCase(ContactPage),
-            unittest.defaultTestLoader.loadTestsFromTestCase(InregistrarePage),
+            unittest.defaultTestLoader.loadTestsFromTestCase(CreareContPage),
             unittest.defaultTestLoader.loadTestsFromTestCase(LoginPage),
             unittest.defaultTestLoader.loadTestsFromTestCase(SearchPage)
         ])
