@@ -1,3 +1,12 @@
+'''
+TEST PAGINA: ‘CE MERITA’
+Aici vom testa daca functioneaza optiunea de abonare la serviciile propuse de website.
+Testul 1 –   Testam daca putem sa ne abonam cu email invalid.  Observam un bug: nu ar trebui sa se permita abonarea
+cu un email invalid, si totusi, in loc sa intampinam un mesaj de eroare, primim mesajul de succes.
+Testul 2 – Testam daca putem sa ne abonam cu email valid. Observam ca putem sa ne abonam, desi nu primim nici
+un email cu confirmare, ceea ce ne duce la faptul ca exista o eroare intre comunicarea site-ului cu utilizatorul.
+Testele = PASS
+'''
 import time
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC

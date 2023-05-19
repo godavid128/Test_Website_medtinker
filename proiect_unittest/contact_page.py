@@ -1,3 +1,9 @@
+'''
+TEST PAGINA: ‘CONTACT’
+Testul 3 – In acest test incercam sa observam, daca elementele de contact sunt accesibile si se poate trimite
+un mesaj cu succes.
+Testul = PASS
+'''
 import time
 from proiect_unittest.home_page_medtinker import HomeMedtinkerChrome
 from proiect_unittest.locators_medtinker import LocatorsContact

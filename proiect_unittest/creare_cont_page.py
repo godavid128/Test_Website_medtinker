@@ -1,3 +1,17 @@
+'''
+TEST PAGINA: ‘CREARE CONT’
+Intram pe site, facem click pe creare cont, si indetificam elementele de tip prenume, nume, username, email, parola,
+casuta termeni si conditi; si inseram valori.
+Testul 4 – Inseram valori corecte, dar in casuta email punem un email fara arond. Apoi dam click
+pe butonul 'inregistrare' si verificam ca: se returneaza eroarea corecta
+Testul 5 – Inseram valori corecte, insa elementul parola lasam gol si verificam daca avem mesajul de eroare corect.
+Testul 6 – In acest test vrem sa ne inregistram fara a accepta conditiile de inregistrare si verificam
+daca este afisat mesajul de eroare.
+Testul 7 – In acest test verificam daca putem sa ne inregistram cu un cont valid deja existent.
+Trebuie sa gasim mesajele de eroare, precum ca: ‘username este deja folosit’ si ‘un cont cu email-ul dat este existent,
+incercati cu alt email’.
+Testele = PASS
+'''
 import time
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -6,9 +20,6 @@ from proiect_unittest.locators_medtinker import LocatorsCreareCont
 
 
 class CreareContPage(HomeMedtinkerChrome):
-    # test1 - intram pe site, facem click pe inregistrare, si indetificam elementele de tip prenume, nume, username,
-    # email, parola, casuta termeni si conditi; si inseram valori corecte, exceptie la email introducem email fara aron.
-    # Apoi dam click pe butonul 'inregistrare' si verificam ca: se returneaza eroarea corecta
     def test_4_creare_cont_cu_email_fara_arond(self):
         self.driver.find_element(*LocatorsCreareCont.SIGNUP_PAGE).click()
         self.driver.implicitly_wait(3)

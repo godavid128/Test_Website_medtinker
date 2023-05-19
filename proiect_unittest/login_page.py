@@ -1,10 +1,15 @@
+'''
+TEST PAGINA: ‘LOGIN’
+Testul 8 – Aici testam daca putem sa ne logam cu un email invalid. Asteptam ca sa intampinam mesajul de eroare corect
+Testul 9 –Aici vrem sa testam daca ne putem loga cu toate valorile corecte si reusim sa intram pe pagina logata.
+Testele = PASS
+'''
 from proiect_unittest.home_page_medtinker import HomeMedtinkerChrome
 from proiect_unittest.locators_medtinker import LocatorsLogin
 
 
 class LoginPage(HomeMedtinkerChrome):
-    # test1 - intram pe site, indetificam elementele de tip email si parola si inseram valori incorecte. Apoi dam click
-    # pe butonul 'autentificare' si verificam ca: se returneaza eroarea corecta
+
     def test_8_logare_cu_valori_incorecte(self):
         self.driver.find_element(*LocatorsLogin.LOGIN_PAGE).click()
         self.driver.find_element(*LocatorsLogin.EMAIL).send_keys('invalid_email@gmail.com')
