@@ -12,9 +12,7 @@ Trebuie sa gasim mesajele de eroare, precum ca: ‘username este deja folosit’
 incercati cu alt email’.
 Testele = PASS
 '''
-import time
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+
 from proiect_unittest.home_page_medtinker import HomeMedtinkerChrome
 from proiect_unittest.locators_medtinker import LocatorsCreareCont
 
@@ -27,12 +25,13 @@ class CreareContPage(HomeMedtinkerChrome):
         self.driver.find_element(*LocatorsCreareCont.NUME).send_keys('go')
         self.driver.find_element(*LocatorsCreareCont.USERNAME).send_keys('godavid128')
         self.driver.find_element(*LocatorsCreareCont.EMAIL_CREARE_CONT).send_keys('godavid128gmail.com')
+        self.driver.implicitly_wait(3)
         self.driver.find_element(*LocatorsCreareCont.PWD_CREARE_CONT).send_keys('david12345')
         self.driver.find_element(*LocatorsCreareCont.BIFARE_TERMENI_CONDITII).click()
-        self.driver.find_element(*LocatorsCreareCont.INREGISTRARE_CONT).click()
-        time.sleep(3)
-        self.assertEqual(self.driver.find_element(*LocatorsCreareCont.MESAJ_ERROR_INREGISTRARE_1).
-                         text, 'Enter valid Email!')
+        self.driver.find_element(*LocatorsCreareCont.BIFARE_ACCORD_DE_PRIMIRE_EMAIL).click()
+        self.driver.find_element(*LocatorsCreareCont.CREARE_CONT).click()
+        # TODO REFACUT MESAJUL DE EROARE
+        self.driver.find_element(*LocatorsCreareCont.MESAJ_ERROR_INREGISTRARE_1).is_displayed()
 
     def test_5_creare_cont_fara_parola(self):
         self.driver.find_element(*LocatorsCreareCont.SIGNUP_PAGE).click()
@@ -41,10 +40,10 @@ class CreareContPage(HomeMedtinkerChrome):
         self.driver.find_element(*LocatorsCreareCont.USERNAME).send_keys('pescuitorul')
         self.driver.find_element(*LocatorsCreareCont.EMAIL_CREARE_CONT).send_keys('pescuitorul@gmail.com')
         self.driver.find_element(*LocatorsCreareCont.BIFARE_TERMENI_CONDITII).click()
-        self.driver.find_element(*LocatorsCreareCont.INREGISTRARE_CONT).click()
-        time.sleep(3)
+        self.driver.find_element(*LocatorsCreareCont.BIFARE_ACCORD_DE_PRIMIRE_EMAIL).click()
+        self.driver.find_element(*LocatorsCreareCont.CREARE_CONT).click()
         self.assertEqual(self.driver.find_element(*LocatorsCreareCont.MESAJ_ERROR_INREGISTRARE_2).
-                         text, 'This Field is required!')
+                         text, 'Trebuie să completezi o parolă')
 
     def test_6_creare_cont_fara_acceptare_conditii(self):
         self.driver.find_element(*LocatorsCreareCont.SIGNUP_PAGE).click()
@@ -53,11 +52,12 @@ class CreareContPage(HomeMedtinkerChrome):
         self.driver.find_element(*LocatorsCreareCont.USERNAME).send_keys('godavid128')
         self.driver.find_element(*LocatorsCreareCont.EMAIL_CREARE_CONT).send_keys('godavid128@gmail.com')
         self.driver.find_element(*LocatorsCreareCont.PWD_CREARE_CONT).send_keys('david12345')
-        self.driver.find_element(*LocatorsCreareCont.INREGISTRARE_CONT).click()
-        WebDriverWait(self.driver, 10).until(
-            EC.visibility_of_element_located(LocatorsCreareCont.MESAJ_ERROR_INREGISTRARE_3))
-        self.assertEqual(self.driver.find_element(*LocatorsCreareCont.MESAJ_ERROR_INREGISTRARE_3).
-                         text, 'Please accept the Terms and Conditions to proceed.')
+        self.driver.find_element(*LocatorsCreareCont.BIFARE_ACCORD_DE_PRIMIRE_EMAIL).click()
+        self.driver.find_element(*LocatorsCreareCont.CREARE_CONT).click()
+        self.driver.implicitly_wait(3)
+        mesaj_error_acord = self.driver.find_element(*LocatorsCreareCont.MESAJ_ERROR_INREGISTRARE_2).text
+        self.assertEqual(mesaj_error_acord, 'Trebuie să îți exprimi acordul pentru a proceda.')
+        self.driver.implicitly_wait(3)
 
     def test_7_creare_cont_valid_deja_existent(self):
         self.driver.find_element(*LocatorsCreareCont.SIGNUP_PAGE).click()
@@ -67,10 +67,8 @@ class CreareContPage(HomeMedtinkerChrome):
         self.driver.find_element(*LocatorsCreareCont.EMAIL_CREARE_CONT).send_keys('godavid128@gmail.com')
         self.driver.find_element(*LocatorsCreareCont.PWD_CREARE_CONT).send_keys('david12345')
         self.driver.find_element(*LocatorsCreareCont.BIFARE_TERMENI_CONDITII).click()
-        self.driver.find_element(*LocatorsCreareCont.INREGISTRARE_CONT).click()
-        time.sleep(3)
-        self.assertEqual(self.driver.find_element(*LocatorsCreareCont.MESAJ_ERROR_INREGISTRARE_4).
-                         text, 'This username is already registered. Please choose another one.')
-        time.sleep(3)
-        self.assertEqual(self.driver.find_element(*LocatorsCreareCont.MESAJ_ERROR_INREGISTRARE_5).
-                         text, 'An account is already registered with your email address. Please choose another one.')
+        self.driver.find_element(*LocatorsCreareCont.BIFARE_ACCORD_DE_PRIMIRE_EMAIL).click()
+        self.driver.find_element(*LocatorsCreareCont.CREARE_CONT).click()
+        self.assertEqual(self.driver.find_element(*LocatorsCreareCont.MESAJ_ERROR_INREGISTRARE_3).
+                         text, 'This email is already registered. Please choose another one.')
+

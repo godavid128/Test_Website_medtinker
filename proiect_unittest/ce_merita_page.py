@@ -7,9 +7,6 @@ Testul 2 – Testam daca putem sa ne abonam cu email valid. Observam ca putem sa
 un email cu confirmare, ceea ce ne duce la faptul ca exista o eroare intre comunicarea site-ului cu utilizatorul.
 Testele = PASS
 '''
-import time
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from proiect_unittest.home_page_medtinker import HomeMedtinkerChrome
 from proiect_unittest.locators_medtinker import LocatorsCeMerita
 
@@ -25,11 +22,10 @@ class CeMeritaPage(HomeMedtinkerChrome):
         self.driver.find_element(*LocatorsCeMerita.BIFARE_TERM_COND_CE_MERITA).click()
         self.driver.find_element(*LocatorsCeMerita.BIFARE_ACORD_NEWSLETTER).click()
         self.driver.find_element(*LocatorsCeMerita.CLICK_VREAU_SA_AFLU_CE_MERITA).click()
-        time.sleep(3)
+        self.driver.implicitly_wait(5)
+        # TODO TREBUIE SA VAD MESAJ DE EROARE
         mesaj_de_succes = self.driver.find_element(*LocatorsCeMerita.MESAJ_DE_SUCCESS).text
         self.assertEqual(mesaj_de_succes, 'Gata! Primul e-mail e deja pe drum.')
-        time.sleep(3)
-        WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(LocatorsCeMerita.MESAJ_DE_SUCCESS))
 
     def test_2_abonare_la_ce_merita_cu_valid_email(self):
         self.driver.find_element(*LocatorsCeMerita.RUBRICA_SOCIAL).click()
@@ -41,6 +37,6 @@ class CeMeritaPage(HomeMedtinkerChrome):
         self.driver.find_element(*LocatorsCeMerita.BIFARE_TERM_COND_CE_MERITA).click()
         self.driver.find_element(*LocatorsCeMerita.BIFARE_ACORD_NEWSLETTER).click()
         self.driver.find_element(*LocatorsCeMerita.CLICK_VREAU_SA_AFLU_CE_MERITA).click()
-        time.sleep(3)
+        self.driver.implicitly_wait(3)
         mesaj_de_succes = self.driver.find_element(*LocatorsCeMerita.MESAJ_DE_SUCCESS).text
         self.assertEqual(mesaj_de_succes, 'Gata! Primul e-mail e deja pe drum.')

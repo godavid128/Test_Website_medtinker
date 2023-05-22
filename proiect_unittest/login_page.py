@@ -4,6 +4,8 @@ Testul 8 – Aici testam daca putem sa ne logam cu un email invalid. Asteptam ca
 Testul 9 –Aici vrem sa testam daca ne putem loga cu toate valorile corecte si reusim sa intram pe pagina logata.
 Testele = PASS
 '''
+import time
+
 from proiect_unittest.home_page_medtinker import HomeMedtinkerChrome
 from proiect_unittest.locators_medtinker import LocatorsLogin
 

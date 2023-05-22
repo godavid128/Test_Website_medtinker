@@ -4,7 +4,6 @@ Daca nu reusim sa instalam, intram la Python Packages si scriem in bara de cauta
 '''
 from selenium.webdriver.common.by import By
 
-
 class LocatorsHomeMedTinker:
     ACCEPT_COOKIES = (By.XPATH, '//*[@id="BorlabsCookieBox"]/div/div/div/div[1]/div/div/div/p[2]/a')
 
@@ -23,32 +22,30 @@ class LocatorsCeMerita:
 
 class LocatorsContact:
     CONTACT_PAGE = (By.XPATH, '//*[@id="menu-item-23287"]/a/span')
-    CONTACT_PRENUME = (By.XPATH, '//*[@id="form-field-email"]')
-    CONTACT_NUME = (By.XPATH, '//*[@id="form-field-nume"]')
-    CONTACT_EMAIL = (By.XPATH, '//*[@id="form-field-field_1e18343"]')
-    CONTACT_MESAJ = (By.XPATH, '//*[@id="form-field-field_6ba0b23"]')
-    CONTACT_BIFARE_TERM_COND = (By.XPATH, '//*[@id="form-field-field_4a9f4e2"]')
-    CONTACT_BIFARE_ACORD_PRIMIRE_EMAIL = (By.XPATH, '//input[@id="form-field-field_c3b66b8"]')
-    TRIMITE_MESAJ = (By.CLASS_NAME, 'elementor-button-text')
-    MESAJ_TRIMIS_CU_SUCCCES = (By.XPATH, '//*[@id="post-2750"]/div/div/section/div/div/div/div[3]/div/form/div[2]')
+    CONTACT_NUME = (By.XPATH, '//*[@id="ff_1_names_first_name_"]')
+    CONTACT_EMAIL = (By.XPATH, '//*[@id="ff_1_email"]')
+    ALEGE_SUBIECT = (By.XPATH, '//*[@id="ff_1_subject"]')
+    SUBIECT_ALES = (By.XPATH, '//*[@id="ff_1_subject"]/option[3]')
+    CONTACT_MESAJ = (By.XPATH, '//*[@id="ff_1_message"]')
+    CONTACT_BIFARE_TERM_COND = (By.XPATH, '//*[@id="terms-n-condition_4029fa0c236f5a979f073a0f46083f50"]')
+    CONTACT_BIFARE_ACORD_PRIMIRE_EMAIL = (By.XPATH, '//*[@id="gdpr-agreement_5025509a8316f47defcc616e613f3929"]')
+    TRIMITE_MESAJ = (By.XPATH, '//*[@id="fluentform_1"]/fieldset/div[7]/button')
+    MESAJ_TRIMIS_CU_SUCCCES = (By.XPATH, '//*[@id="fluentform_1_success"]/p')
 
 
 class LocatorsCreareCont:
     SIGNUP_PAGE = (By.XPATH, '//a[contains(text(),"Creează Cont")]')
-    PRENUME = (By.XPATH, '//input[@placeholder="Care este prenumele tău?"]')
-    NUME = (By.XPATH, '//input[@placeholder="Care este numele tău?"]')
-    USERNAME = (By.XPATH, '//input[@placeholder="Alege username-ul dorit..."]')
-    EMAIL_CREARE_CONT = (By.XPATH, '//input[@placeholder="Scrie adresa ta de email principală..."]')
-    PWD_CREARE_CONT = (By.XPATH, '//input[@placeholder="Alege o parolă sigură..."]')
-    BIFARE_TERMENI_CONDITII = (By.XPATH, '//span[@class="checkbox-label"]')
-    INREGISTRARE_CONT = (By.XPATH, '//span[@class="elementor-button-text uael-registration-submit"]')
+    PRENUME = (By.XPATH, '//*[@id="ff_4_names_first_name_"]')
+    NUME = (By.XPATH, '//*[@id="ff_4_names_last_name_"]')
+    USERNAME = (By.XPATH, '//*[@id="ff_4_username"]')
+    EMAIL_CREARE_CONT = (By.XPATH, '//*[@id="ff_4_email"]')
+    PWD_CREARE_CONT = (By.XPATH, '//*[@id="ff_4_password"]')
+    BIFARE_TERMENI_CONDITII = (By.XPATH, '//*[@id="terms-n-condition_1002c79e3af021e57f67f421ec931146"]')
+    BIFARE_ACCORD_DE_PRIMIRE_EMAIL = (By.XPATH, '//*[@id="gdpr-agreement_deb94ac07fe627afbb3249d371a35a0f"]')
+    CREARE_CONT = (By.XPATH, '//*[@id="fluentform_4"]/fieldset/div[7]/button')
     MESAJ_ERROR_INREGISTRARE_1 = (By.XPATH, '//span[contains(text(),"Enter valid Email!")]')
-    MESAJ_ERROR_INREGISTRARE_2 = (By.XPATH, '//span[contains(text(),"This Field is required!")]')
-    MESAJ_ERROR_INREGISTRARE_3 = (By.XPATH, '//span[@class="uael-register-error"]')
-    MESAJ_ERROR_INREGISTRARE_4 = (By.XPATH, '//span[@class="uael-register-error"][normalize-space()="This username is '
-                                            'already registered. Please choose another one."]')
-    MESAJ_ERROR_INREGISTRARE_5 = (By.XPATH, '//span[@class="uael-register-error"][normalize-space()="An account is '
-                                            'already registered with your email address. Please choose another one."]')
+    MESAJ_ERROR_INREGISTRARE_2 = (By.XPATH, '//div[@role="alert"]')
+    MESAJ_ERROR_INREGISTRARE_3 = (By.XPATH, '//span[@class="error-text"]')
 
 
 class LocatorsLogin:
