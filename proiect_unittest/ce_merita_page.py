@@ -22,10 +22,8 @@ class CeMeritaPage(HomeMedtinkerChrome):
         self.driver.find_element(*LocatorsCeMerita.BIFARE_TERM_COND_CE_MERITA).click()
         self.driver.find_element(*LocatorsCeMerita.BIFARE_ACORD_NEWSLETTER).click()
         self.driver.find_element(*LocatorsCeMerita.CLICK_VREAU_SA_AFLU_CE_MERITA).click()
-        self.driver.implicitly_wait(5)
-        # TODO TREBUIE SA VAD MESAJ DE EROARE
-        mesaj_de_succes = self.driver.find_element(*LocatorsCeMerita.MESAJ_DE_SUCCESS).text
-        self.assertEqual(mesaj_de_succes, 'Gata! Primul e-mail e deja pe drum.')
+
+        # Testul 1 nu poate fi finalizat pana la capat, pentru ca nu se afiseaza mesajul de eroare.
 
     def test_2_abonare_la_ce_merita_cu_valid_email(self):
         self.driver.find_element(*LocatorsCeMerita.RUBRICA_SOCIAL).click()

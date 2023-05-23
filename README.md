@@ -9,8 +9,8 @@
 * Pagina de cautare
 
 > Scopul acestor teste este sa vedem daca functionalitatile site-ului sunt la nivelul 
-asteptarii utilizatorului. Avem 11 teste reusite cu Pass. La testul 1 observam o eroare
-si anume ca, se poate face abonare la newsletter cu email invalid. 
+asteptarii utilizatorului. Avem 11 teste, ditre care doar 10 sunt reusite cu Pass. 
+> La testul 1 observam o eroare si anume ca, se poate face abonare la newsletter cu email invalid. 
 Ceea ce face ca utilizatorul sa astepte in zadar raspunsul.
 
 ### Cum putem rula proiectul in calculator?

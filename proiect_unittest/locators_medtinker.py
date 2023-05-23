@@ -40,12 +40,11 @@ class LocatorsCreareCont:
     USERNAME = (By.XPATH, '//*[@id="ff_4_username"]')
     EMAIL_CREARE_CONT = (By.XPATH, '//*[@id="ff_4_email"]')
     PWD_CREARE_CONT = (By.XPATH, '//*[@id="ff_4_password"]')
-    BIFARE_TERMENI_CONDITII = (By.XPATH, '//*[@id="terms-n-condition_1002c79e3af021e57f67f421ec931146"]')
-    BIFARE_ACCORD_DE_PRIMIRE_EMAIL = (By.XPATH, '//*[@id="gdpr-agreement_deb94ac07fe627afbb3249d371a35a0f"]')
+    BIFARE_TERM_COND_CREARE_CONT = (By.CSS_SELECTOR, '.ff-el-group:nth-child(9) .ff_tc_checkbox')
+    BIFARE_ACCORD_CREARE_CONT = (By.XPATH, '//input[@id="gdpr-agreement_8e772117ad87936e401d2fb42fcbe5c9"]')
     CREARE_CONT = (By.XPATH, '//*[@id="fluentform_4"]/fieldset/div[7]/button')
-    MESAJ_ERROR_INREGISTRARE_1 = (By.XPATH, '//span[contains(text(),"Enter valid Email!")]')
-    MESAJ_ERROR_INREGISTRARE_2 = (By.XPATH, '//div[@role="alert"]')
-    MESAJ_ERROR_INREGISTRARE_3 = (By.XPATH, '//span[@class="error-text"]')
+    MESAJ_ERROR_INREGISTRARE_1 = (By.XPATH, '//div[@role="alert"]')
+    MESAJ_ERROR_INREGISTRARE_2 = (By.XPATH, '//span[@class="error-text"]')
 
 
 class LocatorsLogin:

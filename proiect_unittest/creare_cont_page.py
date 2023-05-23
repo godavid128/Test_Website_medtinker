@@ -18,19 +18,31 @@ from proiect_unittest.locators_medtinker import LocatorsCreareCont
 
 
 class CreareContPage(HomeMedtinkerChrome):
-    def test_4_creare_cont_cu_email_fara_arond(self):
+    def test_6_creare_cont_fara_acceptare_conditii(self):
+        self.driver.find_element(*LocatorsCreareCont.SIGNUP_PAGE).click()
+        self.driver.find_element(*LocatorsCreareCont.PRENUME).send_keys('david')
+        self.driver.find_element(*LocatorsCreareCont.NUME).send_keys('go')
+        self.driver.find_element(*LocatorsCreareCont.USERNAME).send_keys('godavid128')
+        self.driver.find_element(*LocatorsCreareCont.EMAIL_CREARE_CONT).send_keys('godavid128@gmail.com')
+        self.driver.find_element(*LocatorsCreareCont.PWD_CREARE_CONT).send_keys('david12345')
+        self.driver.find_element(*LocatorsCreareCont.BIFARE_ACCORD_CREARE_CONT).click()
+        self.driver.find_element(*LocatorsCreareCont.CREARE_CONT).click()
+        self.driver.implicitly_wait(3)
+        mesaj_error_acord = self.driver.find_element(*LocatorsCreareCont.MESAJ_ERROR_INREGISTRARE_1).text
+        self.assertEqual(mesaj_error_acord, 'Trebuie să îți exprimi acordul pentru a proceda.')
+        self.driver.implicitly_wait(3)
+
+    def test_4_creare_cont_fara_acceptare_acord(self):
         self.driver.find_element(*LocatorsCreareCont.SIGNUP_PAGE).click()
         self.driver.implicitly_wait(3)
         self.driver.find_element(*LocatorsCreareCont.PRENUME).send_keys('david')
         self.driver.find_element(*LocatorsCreareCont.NUME).send_keys('go')
         self.driver.find_element(*LocatorsCreareCont.USERNAME).send_keys('godavid128')
-        self.driver.find_element(*LocatorsCreareCont.EMAIL_CREARE_CONT).send_keys('godavid128gmail.com')
+        self.driver.find_element(*LocatorsCreareCont.EMAIL_CREARE_CONT).send_keys('godavid128@gmail.com')
         self.driver.implicitly_wait(3)
         self.driver.find_element(*LocatorsCreareCont.PWD_CREARE_CONT).send_keys('david12345')
-        self.driver.find_element(*LocatorsCreareCont.BIFARE_TERMENI_CONDITII).click()
-        self.driver.find_element(*LocatorsCreareCont.BIFARE_ACCORD_DE_PRIMIRE_EMAIL).click()
+        self.driver.find_element(*LocatorsCreareCont.BIFARE_TERM_COND_CREARE_CONT).click()
         self.driver.find_element(*LocatorsCreareCont.CREARE_CONT).click()
-        # TODO REFACUT MESAJUL DE EROARE
         self.driver.find_element(*LocatorsCreareCont.MESAJ_ERROR_INREGISTRARE_1).is_displayed()
 
     def test_5_creare_cont_fara_parola(self):
@@ -39,25 +51,11 @@ class CreareContPage(HomeMedtinkerChrome):
         self.driver.find_element(*LocatorsCreareCont.NUME).send_keys('popescu')
         self.driver.find_element(*LocatorsCreareCont.USERNAME).send_keys('pescuitorul')
         self.driver.find_element(*LocatorsCreareCont.EMAIL_CREARE_CONT).send_keys('pescuitorul@gmail.com')
-        self.driver.find_element(*LocatorsCreareCont.BIFARE_TERMENI_CONDITII).click()
-        self.driver.find_element(*LocatorsCreareCont.BIFARE_ACCORD_DE_PRIMIRE_EMAIL).click()
+        self.driver.find_element(*LocatorsCreareCont.BIFARE_TERM_COND_CREARE_CONT).click()
+        self.driver.find_element(*LocatorsCreareCont.BIFARE_ACCORD_CREARE_CONT).click()
         self.driver.find_element(*LocatorsCreareCont.CREARE_CONT).click()
-        self.assertEqual(self.driver.find_element(*LocatorsCreareCont.MESAJ_ERROR_INREGISTRARE_2).
+        self.assertEqual(self.driver.find_element(*LocatorsCreareCont.MESAJ_ERROR_INREGISTRARE_1).
                          text, 'Trebuie să completezi o parolă')
-
-    def test_6_creare_cont_fara_acceptare_conditii(self):
-        self.driver.find_element(*LocatorsCreareCont.SIGNUP_PAGE).click()
-        self.driver.find_element(*LocatorsCreareCont.PRENUME).send_keys('david')
-        self.driver.find_element(*LocatorsCreareCont.NUME).send_keys('go')
-        self.driver.find_element(*LocatorsCreareCont.USERNAME).send_keys('godavid128')
-        self.driver.find_element(*LocatorsCreareCont.EMAIL_CREARE_CONT).send_keys('godavid128@gmail.com')
-        self.driver.find_element(*LocatorsCreareCont.PWD_CREARE_CONT).send_keys('david12345')
-        self.driver.find_element(*LocatorsCreareCont.BIFARE_ACCORD_DE_PRIMIRE_EMAIL).click()
-        self.driver.find_element(*LocatorsCreareCont.CREARE_CONT).click()
-        self.driver.implicitly_wait(3)
-        mesaj_error_acord = self.driver.find_element(*LocatorsCreareCont.MESAJ_ERROR_INREGISTRARE_2).text
-        self.assertEqual(mesaj_error_acord, 'Trebuie să îți exprimi acordul pentru a proceda.')
-        self.driver.implicitly_wait(3)
 
     def test_7_creare_cont_valid_deja_existent(self):
         self.driver.find_element(*LocatorsCreareCont.SIGNUP_PAGE).click()
@@ -66,9 +64,8 @@ class CreareContPage(HomeMedtinkerChrome):
         self.driver.find_element(*LocatorsCreareCont.USERNAME).send_keys('godavid128')
         self.driver.find_element(*LocatorsCreareCont.EMAIL_CREARE_CONT).send_keys('godavid128@gmail.com')
         self.driver.find_element(*LocatorsCreareCont.PWD_CREARE_CONT).send_keys('david12345')
-        self.driver.find_element(*LocatorsCreareCont.BIFARE_TERMENI_CONDITII).click()
-        self.driver.find_element(*LocatorsCreareCont.BIFARE_ACCORD_DE_PRIMIRE_EMAIL).click()
+        self.driver.find_element(*LocatorsCreareCont.BIFARE_TERM_COND_CREARE_CONT).click()
+        self.driver.find_element(*LocatorsCreareCont.BIFARE_ACCORD_CREARE_CONT).click()
         self.driver.find_element(*LocatorsCreareCont.CREARE_CONT).click()
-        self.assertEqual(self.driver.find_element(*LocatorsCreareCont.MESAJ_ERROR_INREGISTRARE_3).
+        self.assertEqual(self.driver.find_element(*LocatorsCreareCont.MESAJ_ERROR_INREGISTRARE_2).
                          text, 'This email is already registered. Please choose another one.')
-
